@@ -20,7 +20,7 @@ public class enemy: MonoBehaviour
         Vector3 direction = (player.transform.position - transform.position).normalized;
         enemyRigidbody.AddForce(direction * speed);
 
-       // transform.LookAt(gameObject.player);
+       transform.LookAt(player.transform.position);
     }
 
         private void OnCollisionEnter (Collision otherColider)
