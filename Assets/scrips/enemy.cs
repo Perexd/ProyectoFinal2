@@ -11,13 +11,16 @@ public class enemy: MonoBehaviour
 
     private void Start()
     {
-      
+        enemyRigidbody = GetComponent<Rigidbody>();
+        player = GameObject.Find("Player");
     }
 
     void Update()
     {
         Vector3 direction = (player.transform.position - transform.position).normalized;
         enemyRigidbody.AddForce(direction * speed);
+
+       // transform.LookAt(gameObject.player);
     }
 
         private void OnCollisionEnter (Collision otherColider)

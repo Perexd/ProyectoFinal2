@@ -19,7 +19,7 @@ public class misilenemigo1 : MonoBehaviour
     }
     private void OnTriggerEnter(Collider otherTrigger)
     {
-        if (otherTrigger.gameObject.CompareTag("player"))
+        if (otherTrigger.gameObject.CompareTag("Player"))
         {
             Destroy(gameObject);
         }
