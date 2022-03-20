@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class bala: MonoBehaviour
 {
-    public float speed = 20f;
+    public float speed = 30f;
     [SerializeField] private float lifeTime = 5f;
     // Start is called before the first frame update
     void Start()
@@ -20,8 +20,8 @@ public class bala: MonoBehaviour
     private void OnTriggerEnter(Collider otherTrigger)
     {
         if (otherTrigger.gameObject.CompareTag("enemy"))
-        {
+          {
             Destroy(gameObject);
-        }
+          }  
     }
 }

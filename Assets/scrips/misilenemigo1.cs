@@ -5,7 +5,7 @@ using UnityEngine;
 public class misilenemigo1 : MonoBehaviour
 {
     public float speed = 20f;
-    [SerializeField] private float lifeTime = 5f;
+    public float lifeTime = 5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,12 +16,13 @@ public class misilenemigo1 : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
+    
     }
-    private void OnTriggerEnter(Collider otherTrigger)
+      private void OnTriggerEnter(Collider otherCollider)
     {
-        if (otherTrigger.gameObject.CompareTag("Player"))
+        if (otherCollider.gameObject.CompareTag("player1"))
         {
-            Destroy(gameObject);
+          Destroy(gameObject);    
         }
     }
 }

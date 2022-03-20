@@ -1,42 +1,77 @@
+
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class playercontroler : MonoBehaviour
 {
-    private float speed = 20.0f;
-    private float turnSpeed = 30.0f;
-    private float horizontalInput;
-    private Vector3 tankposition = new Vector3 (-2.7f, 5.73f, 10.2f);
+   private float movimiento;
+   private float rotacion;
+public float movementspeed =20f;
+public float rotationspeed =80f;
+ private int lives = 3;
+ private int end = 0;
+  public bool gameOver;
+  public bool Win;
 
-    public GameObject ProjectailPrefab;
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = tankposition;
+       
     }
 
     // Update is called once per frame
     void Update()
     {
+     movimiento = Input.GetAxis("Vertical");   
+     rotacion = Input.GetAxis("Horizontal");   
+
+     transform.Translate(Vector3.forward * movementspeed * Time.deltaTime * movimiento);
         
+     transform.Rotate(Vector3.up, rotationspeed * Time.deltaTime * rotacion);
 
-        horizontalInput = Input.GetAxis("Horizontal");
 
-        transform.Rotate(Vector3.up * turnSpeed * Time.deltaTime * horizontalInput);
-
+    }  
+  
+     
+    private void OnTriggerEnter(Collider otherCollider)
+    {
+        if (otherCollider.gameObject.CompareTag("Powerup"))
         {
-            transform.position = new Vector3( transform.position.y, transform.position.z);
-        }     
-        {
-            transform.position = new Vector3( transform.position.y, transform.position.z);
+           
+
+            lives++;
+
+            Debug.Log("tienes");
+
+            end++;
+            if (end == 5)
+            {
+                win();
+            }
+
+         Destroy(otherCollider.gameObject);
         }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-
-            Instantiate(ProjectailPrefab, transform.position, transform.rotation);
+         if (otherCollider.gameObject.CompareTag("misilenemigo"))
+            {  
+                lives--;
+                if (lives <= 0)
+                {
+                    GameOver();
+                }
+                Destroy(otherCollider.gameObject);
+            } 
     }
+ private void GameOver()
+    {       
+        gameOver = true;
+         Debug.Log("game over");
+    }
+private void win()
+{
+    Win = true;
+      Debug.Log("ganar");
 }
 
-
-
+}

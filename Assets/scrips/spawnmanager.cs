@@ -7,31 +7,38 @@ using Random = UnityEngine.Random;
 public class spawnmanager : MonoBehaviour
 {
     public GameObject enemyPrefab;
-    public GameObject powerUpPrefab;
+   
 
-    private float spawnPositionRange = 9f;
+    private float spawnPositionRangez = 200f;
+    private float spawnPositionRangez2 = 600f;
+    private float spawnPositionRangex = -200f;
+    private float spawnPositionRangex2 = 500f;
 
     private int enemiesPerWave = 1;
     private int enemiesLeft;
 
     void Start()
     {
-        Instantiate(powerUpPrefab, RandomSpawnPostion(),
-            powerUpPrefab.transform.rotation);
         SpawnEnemyWave(enemiesPerWave);
     }
 
     private void Update()
     {
-
+ enemiesLeft = FindObjectsOfType<enemy>().Length;
+        if (enemiesLeft <= 0)
+        {
+            enemiesPerWave++;
+            SpawnEnemyWave(enemiesPerWave);
+        }
     }
 
     private Vector3 RandomSpawnPostion()
     {
-        float xRandom = Random.Range(-spawnPositionRange, spawnPositionRange);
-        float zRandom = Random.Range(-spawnPositionRange, spawnPositionRange);
+        float xRandom = Random.Range(spawnPositionRangex2,spawnPositionRangex);
+        float zRandom = Random.Range(spawnPositionRangez2, spawnPositionRangez);
+        
 
-        return new Vector3(xRandom, 0, zRandom);
+        return new Vector3(xRandom, 1, zRandom);
     }
 
     private void SpawnEnemy()

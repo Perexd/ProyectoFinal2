@@ -7,7 +7,7 @@ public class enemy: MonoBehaviour
 {
     private Rigidbody enemyRigidbody;
     private GameObject player;
-    [SerializeField] private float speed = 2;
+    [SerializeField] private float speed = 1;
 
     private void Start()
     {
@@ -29,5 +29,9 @@ public class enemy: MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+    private void fixedUpdate()
+    {
+    enemyRigidbody.AddForce((player.transform.position - transform.position).normalized * speed * Time.deltaTime);
     }
 }

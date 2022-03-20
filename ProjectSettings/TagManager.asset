@@ -6,6 +6,9 @@ TagManager:
   tags:
   - enemy
   - bala
+  - player1
+  - misilenemigo
+  - Powerup
   layers:
   - Default
   - TransparentFX
