@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: d80585f1bcb226a4ab33e204e9a43be0
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - The Last Shuriken
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 075531fffee51c84bb8d5ac494749efb, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
