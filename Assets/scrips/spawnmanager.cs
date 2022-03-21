@@ -14,7 +14,7 @@ public class spawnmanager : MonoBehaviour
     private float spawnPositionRangex = -200f;
     private float spawnPositionRangex2 = 500f;
 
-    private int enemiesPerWave = 1;
+    private int enemiesPerWave = 8;
     private int enemiesLeft;
 
     void Start()
