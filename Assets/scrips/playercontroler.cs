@@ -18,6 +18,7 @@ public class playercontroler : MonoBehaviour
     public GameObject Win;
     public GameObject vidasxd;
     public TextMeshProUGUI Texto;
+    public ParticleSystem Explosion;
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +39,7 @@ public class playercontroler : MonoBehaviour
         transform.Rotate(Vector3.up, rotationspeed * Time.deltaTime * rotacion);
 
        Texto.text = $"{lives}";
+       
     }
 
 
@@ -68,12 +70,15 @@ public class playercontroler : MonoBehaviour
                 GameOver();
             }
             Destroy(otherCollider.gameObject);
+            
         }
     }
     private void GameOver()
     {
         gameOver.SetActive(true);
         vidasxd.SetActive(false);
+        Explosion.Play();
+
     }
     private void win()
     {
